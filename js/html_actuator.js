@@ -157,7 +157,7 @@ HTMLActuator.prototype.scoreTweetButton = function () {
 
   var text = "I scored " + this.score + " points at 2048.";
 			 
-             share.addListener("click",function(event){
+             share.addEventListener("click",function(event){
                alert(text);
              });
 
