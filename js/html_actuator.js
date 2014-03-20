@@ -151,27 +151,29 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-over");
 };
 
+function shareScore(score) {
+  var text = "I scored " + score + " points at 2048 Game.";
+			 
+ 	var rdl = TwoPlus.createRDL({
+     	noun: "score",
+     	displayTitle: text,
+     	displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
+     	displayText: "Try to beat my score :P",
+     	json: {},
+     	callback: window.location.href,
+     });
+
+     TwoPlus.setPasteboard(rdl);
+     TwoPlus.exit();  
+}
+
 HTMLActuator.prototype.scoreTweetButton = function () {
   var share = document.createElement("a");
   share.textContent = "Share";
-
-  var text = "I scored " + this.score + " points at 2048 Game.";
-			 
-             share.addEventListener("click",function(event){
-               alert(text);
-
-               	var rdl = TwoPlus.createRDL({
-                   	noun: "score",
-                   	displayTitle: text,
-                   	displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
-                   	displayText: "Try to beat my score :P",
-                   	json: {},
-                   	callback: window.location.href,
-                   });
-
-                   TwoPlus.setPasteboard(rdl);
-                   TwoPlus.exit();
-             });
+  var score = this.score;
+  share.addEventListener("click",function(event){
+   shareScore(score);
+  });
 
   return share;
 };
