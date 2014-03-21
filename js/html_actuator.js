@@ -155,7 +155,7 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   var share = document.createElement("a");
   share.textContent = "Share";
   var score = this.score;
-  share.addEventListener("click",function(event){
+  share.addEventListener("tap",function(event){
    shareScore(score);
   });
 
