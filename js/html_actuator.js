@@ -155,7 +155,6 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   var share = document.createElement("a");
   share.textContent = "Share";
   var score = this.score;
-  console.log(score);
 
   share.setAttribute("href", "javascript:shareScore("+score+")");
 
