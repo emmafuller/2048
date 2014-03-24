@@ -28,13 +28,13 @@ GameManager.prototype.keepPlaying = function () {
 
 // Send Score back to Omlet
 GameManager.prototype.shareScore = function () {
-  var text = "I scored " + this.actuator.score + " points at 2048 Game.";
+  var text = "2048";
        
   var rdl = TwoPlus.createRDL({
       noun: "score",
       displayTitle: text,
       displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
-      displayText: "Try to beat my score :P",
+      displayText: "I scored " + this.actuator.score + " points at 2048 Game. Try to beat my score :P",
       json: {},
       callback: window.location.href,
   });
