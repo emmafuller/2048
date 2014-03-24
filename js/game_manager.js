@@ -174,7 +174,7 @@ GameManager.prototype.move = function (direction) {
   if (moved) {
     this.addRandomTile();
 
-    if ( !this.movesAvailable()) {    //remove/add:  (true){//  :to get game to play normal/lose after one move
+    if (!this.movesAvailable()) {    //remove/add:  (true){//  :to get game to play normal/lose after one move
       this.over = true; // Game over!
     }
 
