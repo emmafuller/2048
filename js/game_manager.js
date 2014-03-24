@@ -34,7 +34,7 @@ GameManager.prototype.shareScore = function () {
       noun: "score",
       displayTitle: text,
       displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
-      displayText: "I scored " + this.actuator.score + " points at 2048 Game. Try to beat my score :P",
+      displayText: "I scored " + this.actuator.score + " points at 2048 Game. Tap here to try to beat my score :P",
       json: {},
       callback: window.location.href,
   });
