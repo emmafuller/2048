@@ -72,6 +72,11 @@ KeyboardInputManager.prototype.listen = function () {
   keepPlaying.addEventListener("click", this.keepPlaying.bind(this));
   keepPlaying.addEventListener("touchend", this.keepPlaying.bind(this));
 
+
+  var shareScore = document.querySelector(".share-score-button");
+  shareScore.addEventListener("click", this.shareScore.bind(this));
+  shareScore.addEventListener("touchend", this.shareScore.bind(this));
+
   // Listen to swipe events
   var touchStartClientX, touchStartClientY;
   var gameContainer = document.getElementsByClassName("game-container")[0];
@@ -127,4 +132,9 @@ KeyboardInputManager.prototype.restart = function (event) {
 KeyboardInputManager.prototype.keepPlaying = function (event) {
   event.preventDefault();
   this.emit("keepPlaying");
+};
+
+KeyboardInputManager.prototype.shareScore = function (event) {
+  event.preventDefault();
+  this.emit("shareScore");
 };

@@ -9,6 +9,7 @@ function GameManager(size, InputManager, Actuator, ScoreManager) {
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
+  this.inputManager.on("shareScore", this.shareScore.bind(this));
 
   this.setup();
 }
@@ -23,6 +24,24 @@ GameManager.prototype.restart = function () {
 GameManager.prototype.keepPlaying = function () {
   this.keepPlaying = true;
   this.actuator.continue();
+};
+
+// Send Score back to Omlet
+GameManager.prototype.shareScore = function () {
+  var text = "I scored " + this.actuator.score + " points at 2048 Game.";
+       
+  var rdl = TwoPlus.createRDL({
+      noun: "score",
+      displayTitle: text,
+      displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
+      displayText: "Try to beat my score :P",
+      json: {},
+      callback: window.location.href,
+  });
+
+  TwoPlus.setPasteboard(rdl);
+  TwoPlus.exit();  
+  
 };
 
 GameManager.prototype.isGameTerminated = function () {
@@ -155,7 +174,7 @@ GameManager.prototype.move = function (direction) {
   if (moved) {
     this.addRandomTile();
 
-    if (true){//(!this.movesAvailable()) {    //remove/add:  (true){//  :to get game to play normal/lose after one move
+    if ( !this.movesAvailable()) {    //remove/add:  (true){//  :to get game to play normal/lose after one move
       this.over = true; // Game over!
     }
 

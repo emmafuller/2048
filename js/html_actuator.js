@@ -150,7 +150,7 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-over");
 };
 
-
+/**
 HTMLActuator.prototype.scoreTweetButton = function () {
   var share = document.createElement("a");
   share.textContent = "Share";
@@ -160,3 +160,4 @@ HTMLActuator.prototype.scoreTweetButton = function () {
 
   return share;
 };
+/**/
