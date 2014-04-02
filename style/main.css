@@ -754,9 +754,9 @@ hr {
     top: -30px;
     opacity: 0;
     pointer-events: none;
-    -webkit-transition: 400ms ease;
-    -moz-transition: 400ms ease;
-    transition: 400ms ease;
+    -webkit-transition: 100ms ease;
+    -moz-transition: 100ms ease;
+    transition: 100ms ease;
     -webkit-transition-property: top, opacity;
     -moz-transition-property: top, opacity;
     transition-property: top, opacity; }
