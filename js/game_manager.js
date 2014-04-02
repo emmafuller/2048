@@ -34,7 +34,7 @@ GameManager.prototype.shareScore = function () {
       noun: "score",
       displayTitle: text,
       displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
-      displayText: "I scored " + this.actuator.score + " points at 2048 Game. Tap here to try to beat my score :P",
+      displayText: "I scored " + this.actuator.score + " points at 2048 Game.  My highest tile was: " + this.bestTile + ".  Tap here to try to beat my score :P",
       json: {},
       callback: window.location.href,
   });
@@ -57,6 +57,7 @@ GameManager.prototype.setup = function () {
   this.grid        = new Grid(this.size);
 
   this.score       = 0;
+  this.bestTile    = 0;
   this.over        = false;
   this.won         = false;
   this.keepPlaying = false;
@@ -158,8 +159,14 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
+          // Update the highest tile
+          if( self.bestTile < merged.value )
+          {
+            self.bestTile = merged.value;
+          }
+
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === 64) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }
