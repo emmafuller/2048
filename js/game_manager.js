@@ -121,6 +121,13 @@ GameManager.prototype.moveTile = function (tile, cell) {
 
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
+  // debug testing!
+  //console.log("Two Plus: " + TwoPlus.scope.options);
+  for( var k in TwoPlus.scope.options )
+  {
+      console.log("\t" + k + ": " + TwoPlus.scope.options[k]);
+  }
+
   // 0: up, 1: right, 2:down, 3: left
   var self = this;
 
