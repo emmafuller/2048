@@ -30,7 +30,7 @@ GameManager.prototype.keepPlaying = function () {
 GameManager.prototype.shareScore = function () {
   var text = "2048";
        
-  var rdl = TwoPlus.createRDL({
+  var rdl = Omlet.createRDL({
       noun: "score",
       displayTitle: text,
       displayThumbnailUrl: "http://emmafuller.github.io/2048/meta/apple-touch-icon.png",
@@ -39,8 +39,8 @@ GameManager.prototype.shareScore = function () {
       callback: window.location.href,
   });
 
-  TwoPlus.setPasteboard(rdl);
-  TwoPlus.exit();  
+  Omlet.setPasteboard(rdl);
+  Omlet.exit();  
   
 };
 
@@ -122,10 +122,10 @@ GameManager.prototype.moveTile = function (tile, cell) {
 // Move tiles on the grid in the specified direction
 GameManager.prototype.move = function (direction) {
   // debug testing!
-  //console.log("Two Plus: " + TwoPlus.scope.options);
-  for( var k in TwoPlus.scope.options )
+  //console.log("Two Plus: " + Omlet.scope.options);
+  for( var k in Omlet.scope.options )
   {
-      console.log("\t" + k + ": " + TwoPlus.scope.options[k]);
+      console.log("\t" + k + ": " + Omlet.scope.options[k]);
   }
 
   // 0: up, 1: right, 2:down, 3: left
